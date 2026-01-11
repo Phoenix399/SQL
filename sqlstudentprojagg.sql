@@ -1,17 +1,20 @@
-CREATE TABLE IF NOT EXISTS student (
-    student_id TEXT,
+CREATE TABLE IF NOT EXISTS student(
+ student_id TEXT,
     name TEXT,
     class TEXT,
-    address TEXT,
-    phone_number TEXT
+    subject_name TEXT,
+    marks INTEGER
 );
 
-INSERT INTO student (student_id, name, class, address, phone_number) VALUES
-('SCH/2026/001', 'James Hoog', 'JSS1', 'New York', '1234567890'),
-('SCH/2026/002', 'Nail Knite', 'JSS1', 'Paris', '1234567891'),
-('SCH/2026/003', 'Pit Alex', 'JSS2', 'London', '1234567892'),
-('SCH/2026/004', 'Mc Lyon', 'JSS2', 'Athens', '1234567893'),
-('SCH/2026/005', 'Paul Adam', 'JSS3', 'Rome', '1234567894'),
-('SCH/2026/006', 'Lauson Hen', 'JSS3', 'San Jose', '1234567895');
-
-SELECT * FROM student;
+INSERT INTO student (student_id, name, class, subject_name, marks) VALUES
+('SCH/2026/001', 'James Hoog', 'JSS1', 'Mathematics', 85),
+('SCH/2026/002', 'Nail Knite', 'JSS1', 'Mathematics', 78),
+('SCH/2026/003', 'Pit Alex', 'JSS2', 'Mathematics', 92),
+('SCH/2026/004', 'Mc Lyon', 'JSS2', 'Mathematics', 88),
+('SCH/2026/005', 'Paul Adam', 'JSS3', 'Mathematics', 95),
+('SCH/2026/006', 'Lauson Hen', 'JSS3', 'Mathematics', 80);
+SELECT COUNT(*) AS total_students FROM student;
+SELECT AVG(marks) AS average_marks FROM student;
+SELECT SUM(marks) AS total_marks FROM student;
+SELECT MIN(marks) AS minimum_marks FROM student;
+SELECT MAX(marks) AS maximum_marks FROM student;
