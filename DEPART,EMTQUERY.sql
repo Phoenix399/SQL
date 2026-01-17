@@ -25,3 +25,8 @@ SELECT department_id AS "Department Code",
 COUNT(*) AS "No of Employees"
 FROM DEPARTMENT
 GROUP BY department_id;
+
+SELECT department_id, COUNT(*) AS "No of Employees"
+FROM DEPARTMENT
+GROUP BY department_id
+HAVING COUNT(*) > 2;
