@@ -1,0 +1,55 @@
+-- Drop table if it exists
+DROP TABLE IF EXISTS PRODUCT;
+
+-- Create PRODUCT table
+CREATE TABLE PRODUCT (
+    PRODUCT_ID TEXT PRIMARY KEY,
+    PRODUCT_NAME TEXT NOT NULL,
+    CATEGORY TEXT,
+    PRICE INTEGER,
+    STOCK INTEGER
+);
+
+-- Insert sample data
+INSERT INTO PRODUCT (PRODUCT_ID, PRODUCT_NAME, CATEGORY, PRICE, STOCK) VALUES
+('P1', 'LAPTOP', 'ELECTRONICS', 4500, 10),
+('P2', 'MOUSE', 'ELECTRONICS', 150, 50),
+('P3', 'CHAIR', 'FURNITURE', 1200, 20),
+('P4', 'TABLE', 'FURNITURE', 2500, 15),
+('P5', 'PHONE', 'ELECTRONICS', 3000, 25);
+
+-- View all products
+SELECT * FROM PRODUCT;
+
+-- Products costing more than 2000
+SELECT * FROM PRODUCT
+WHERE PRICE > 2000;
+
+-- Electronics products only
+SELECT * FROM PRODUCT
+WHERE CATEGORY = 'ELECTRONICS';
+
+-- Products with stock less than 20
+SELECT * FROM PRODUCT
+WHERE STOCK < 20;
+
+-- Sort products by price (highest first)
+SELECT * FROM PRODUCT
+ORDER BY PRICE DESC;
+
+-- Count products per category
+SELECT CATEGORY, COUNT(*) AS TOTAL_PRODUCTS
+FROM PRODUCT
+GROUP BY CATEGORY;
+
+-- Update stock of MOUSE
+UPDATE PRODUCT
+SET STOCK = 60
+WHERE PRODUCT_NAME = 'MOUSE';
+
+-- Delete products cheaper than 200
+DELETE FROM PRODUCT
+WHERE PRICE < 200;
+
+-- Find most expensive product
+SELECT MAX(PRICE) AS HIGHEST_PRICE FROM PRODUCT;
